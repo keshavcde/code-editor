@@ -2,13 +2,14 @@
 const { GoogleGenAI } = require('@google/genai');
 const express = require('express');
 const airouter = express.Router();
+const {middle}=require("../middleware")
 
 // Initialize the AI client
 const ai = new GoogleGenAI({
   apiKey: 'AIzaSyApHvm7W5-7iaxwjJ9xumY0cSDF_rrV3vg', // Replace with your actual API key
 });
 
-airouter.post('/ai', async (req, res) => {
+airouter.post('/ai',middle, async (req, res) => {
   try {
     const { prompt } = req.body;
     if (!prompt) {

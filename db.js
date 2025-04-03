@@ -1,5 +1,5 @@
 const mongoose=require("mongoose");
-mongoose.connect("mongodb+srv://codezepto:jwt@cluster1.ionmu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1/code-editor");
+mongoose.connect("mongodb+srv://codezepto:jwt@cluster1.ionmu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1");
 const signupSchema=new mongoose.Schema({
     username:{
         type:String,
@@ -9,6 +9,7 @@ const signupSchema=new mongoose.Schema({
     },
     email:{
         type:String,
+        unique:true,
         required:true,
         maxLength:40,
         trim:true
